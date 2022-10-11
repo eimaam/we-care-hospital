@@ -689,9 +689,14 @@ section.reviews > div .review--cards--section {
   align-items: center;
   gap: 1rem;
   width: 450px;
-  height: 200px;
+  height: 180px;
   padding: 1rem;
   border-radius: 1rem;
+  transition: all 3500ms;
+}
+.review--card:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px black;
 }
 .review--card img {
   width: 70px;

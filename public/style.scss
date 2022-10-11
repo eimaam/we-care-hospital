@@ -685,9 +685,15 @@ section.reviews{
 .review--card{
     @include flex(row);
     width: 450px;
-    height: 200px;
+    height: 180px;
     padding: 1rem;
     border-radius: 1rem;
+    transition: all 3500ms;
+
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: 2px 2px black;
+    }
 
     img{
         width: 70px;

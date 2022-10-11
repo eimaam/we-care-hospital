@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Nav } from './Nav'
 
 import hero from "../../assets/heroImage.svg"
 
+import AOS from "aos";
+import 'aos/dist/aos.css'; 
+
+
+
 export const Header = () => {
+
+    useEffect(() => {
+    AOS.init();
+    }, [])
+
+
   return (
-    <header>
+    <header data-aos="fade-right" data-aos-delay="150">
         <Nav />
         <div className='hero--section'>
             <div className='site--info'>

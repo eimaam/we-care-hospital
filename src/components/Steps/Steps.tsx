@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { StepCard } from './StepCard'
 import { stepsData } from './stepsData'
+
+import AOS from "aos";
+import 'aos/dist/aos.css'; 
 
 
 
 
 export const Steps = () => {
+
+  useEffect(() => {
+    AOS.init()
+  }, [])
+  
   const cards = stepsData.map((item, index) => {
     return <StepCard 
             icon={item.icon}

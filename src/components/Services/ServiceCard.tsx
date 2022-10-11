@@ -1,5 +1,8 @@
-import React, { ReactElement } from 'react'
-import dummy from "../../assets/icons8-typescript.svg"
+import React, { ReactElement, useEffect } from 'react'
+
+// import Animate on Scroll Lib
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 interface Props {
   icon: ReactElement,
@@ -8,8 +11,13 @@ interface Props {
 }
 
 export const ServiceCard = (props: Props) => {
+
+  useEffect(() => {
+    AOS.init({delay: 250})
+  }, [])
+
   return (
-    <div className='service--card'>
+    <div className='service--card' data-aos="zoom-in">
       <h1>{props.icon}</h1>
       <div>
         <h3>{props.title}</h3>

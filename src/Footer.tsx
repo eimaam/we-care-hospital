@@ -50,7 +50,7 @@ export const Footer = () => {
       <div className='footer--note'>
         <hr />
         <p>Copyright &copy; All right reserved. </p>
-        <p><a href="https://www.behance.net/elizabethajayi21">UI Designer: Elizabeth </a></p>
+        <p><a href="https://www.behance.net/elizabethajayi21" target="_blank" rel="noopener noreferrer">UI Designer: Elizabeth </a></p>
       </div>
     </div>
     </footer>
