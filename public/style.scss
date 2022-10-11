@@ -1,0 +1,852 @@
+@import './variables';
+
+@mixin mobile-sm{
+    @media only screen and (max-width: 380px){
+        @content;
+    }
+}
+@mixin mobile{
+    @media only screen and (max-width: 820px){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media only screen and (min-width: 821px) and (max-width: 1320px){
+        @content;
+    }
+}
+
+@mixin flex($direction){
+    margin: auto;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+@mixin grid{
+    margin: auto;
+    display: grid;
+    gap: 2rem;
+}
+
+
+@mixin w-screen{
+    width: 100%;
+}
+
+@mixin screen-coloured{
+    margin: auto;
+    width: 70%;
+    margin-block: 3rem;
+    padding-block: 2rem;
+    background-color: $secondary;
+    text-align: center;   
+    border-radius: 1rem;
+}
+@mixin screen-default{
+    margin: auto;
+    width: 100%;
+    background-color: $default;    
+}
+@mixin width70{
+    margin: auto;
+    width: 70%;
+}
+
+@mixin width85{
+    margin: auto;
+    width: 85%;
+}
+
+@mixin width90{
+    width: 90%;
+}
+
+@mixin widthSize($size){
+    margin: auto;
+    width: $size;
+}
+
+
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-style: solid;
+    border-color: $secondary;
+}
+
+html, body{
+    margin: auto;
+    background-color: $default;
+    scroll-behavior: smooth;
+    font-family: $body--text;
+    width: 100%;
+    height: 100%;
+    color: $text--dark;
+    line-height: 1.6;
+    transition: 700ms ease-in;
+    /* overflow-x: hidden; */
+    word-wrap: break-word;
+    scroll-padding-top: 15vh;
+}
+a{
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+ul{
+    list-style-type: none;
+}
+div,
+button,
+h1,h2,h3,h4,h5,h6,
+span,p{
+    margin: 0;
+}
+h1{
+    color: $primary;
+    text-transform: capitalize;
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: $heading1--text;
+    // letter-spacing: 8px;
+    line-height: normal;
+
+    @include mobile{
+        font-size: 1.8rem;
+    }
+    @include mobile-sm(){
+        font-size: 1.5rem;
+    }
+    @include tablet(){
+        font-size: 2rem;
+    }
+}
+h2{
+    font-family: $heading--text;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: $primary;
+
+    @include mobile{
+        font-size: 1.2rem;
+    }
+
+    @include mobile-sm(){
+        font-size: 1rem;
+    }
+
+    @include tablet(){
+        font-size: 1.5rem;
+    }
+}
+h3{
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: $heading--text;
+    color: $text--dark;
+
+    @include mobile(){
+        font-size: 1.1rem;
+    }
+}
+h4{
+    font-size: 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+p{
+    font-size: 1.125rem;
+    font-family: $body--text;
+    text-align: justify;
+    font-weight: 400;
+
+    @include mobile(){
+        font-size: 1rem;
+    }
+    @include mobile-sm(){
+        font-size: 0.8rem;
+    }
+    @include tablet(){
+        font-size: 1rem;
+    }
+}
+img{
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+    display: block;
+    height: auto;
+}
+input, 
+select,  
+textarea{
+    font-family: inherit;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+    background-color: $default;
+    color: inherit;
+    resize: none;
+}
+input[type=submit]{
+    background-color: $primary;
+    font-weight: bolder;
+    border: none;
+    border-radius: 0;
+    color: $white;
+    font-family: $body--text;
+    font-weight: bold;
+}
+button{
+    width: max-content;
+    padding: 1rem;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    background-color: $primary;
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    font-family: $body--text;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    @include mobile{
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.5rem;
+    }
+
+    @include mobile-sm(){
+        padding: 0.3rem 0.5rem;
+    }
+
+    &:hover{
+        background-color: $secondary;
+        // box-shadow: -5px 5px $text--dark;
+        transition: 700ms ease-in-out;
+        place-items: center;
+    }
+}
+.button--white{
+    @extend button;
+    background-color: $default;
+    color: $text--dark !important;
+    border: 1px solid $primary;
+
+    &:hover{
+        background-color: $primary;
+        color: $default !important;
+    }
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  /* 2 */
+  background-image: none;  
+  /* 2 */
+  color: $white;
+  font-family: $body--text;
+  font-weight: bold;
+
+}
+
+// Main project styling starts here
+
+// Header component
+nav{
+    width: 100%;
+    @include flex(row);
+    justify-content: space-between;
+    padding: 0.5rem 8rem;
+
+    @include mobile(){
+        display: none;
+    }
+
+    a{
+        &.active{
+            color: $primary;
+        }
+
+        &:hover{
+            outline: 1px solid $primary;
+            padding: 0.5rem;
+        }
+    }
+
+    
+    
+
+    div, ul{
+        width: 100%;
+    }
+
+    h2{
+        color: $primary;
+        flex: 1;
+    }
+
+    ul{
+        @include flex(row);
+        flex: 1;
+        
+        li{
+            font-family: $heading--text;
+            font-weight: 400;
+            font-size: 1.125;
+        }
+    }
+
+    div:last-child{
+        display: flex;
+        justify-content: end;
+        gap: 1rem;
+    }
+}
+header{
+    // height: 80vh;
+    @include mobile(){
+        height: 100vh;
+    }
+
+    @include tablet(){
+        height: 80vh;
+    }
+
+    .hero--section{
+        margin: auto;
+        width: 85%;
+        @include flex(row);
+
+        .site--info{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+
+            @include mobile(){
+                gap: 1rem;
+            }
+
+            @include tablet(){
+                flex: 2;
+                width: 100%;
+            }
+
+            h1{
+                letter-spacing: 5px;
+            }
+        }
+
+        img{
+            flex: 1.5;
+
+            @include tablet(){
+                width: 50%;
+                flex: 1;
+            }
+        }
+
+        @include mobile{
+            flex-direction: column-reverse;
+            width: 90%;
+        }
+        
+    }
+}
+
+// services section
+section.steps{
+    background-color: $primary;
+
+    & > div{
+        @include flex(column);
+        padding: 2rem;
+        color: $default;
+        width: 80%;
+        margin-bottom: 10rem;
+        text-align: center;
+
+        @include mobile(){
+            width: 90%;
+        }
+
+        @include tablet(){
+            width: 90%;
+        }
+        
+        .steps--info{
+            width: 100%;
+            @include flex(row);
+            justify-content: space-evenly;
+            
+            @include mobile(){
+                flex-direction: column;
+
+                *{
+                    text-align: center;
+                }
+            }
+            
+            h2{
+                color: $default;
+            }
+        }
+        
+        #cards{
+            @include flex(row);
+            color: $text--dark;
+            
+            @include mobile(){
+                flex-direction: column;
+            }
+
+            @include tablet(){
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+.steps--card{
+    width: 18.5rem;
+    height: 17.5rem;
+    @include flex(column);
+    margin-block: 2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: $default;
+    margin-bottom: -10rem;
+    transition: all 2000ms;
+
+    h1{
+        font-size: 3.125rem;
+    }
+
+    @include mobile(){
+        margin-bottom: auto;
+        width: 100%;
+    }
+
+    @include tablet(){
+        margin-bottom: auto;
+    }
+
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+
+// section component
+
+section.section1{
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section--content{
+        width: 80%;
+        @include flex(row);
+
+        @include mobile(){
+            width: 90%;
+            flex-direction: column-reverse;
+        }
+
+        @include tablet(){
+            width: 90%;
+
+            *{
+                flex: 1;
+            }
+        }
+        
+        img{
+            flex: 2;
+
+            @include tablet(){
+                // width: 50%;
+                flex: 1 !important;
+            }
+            
+        }
+
+        .section--info{
+            @include flex(column);
+            align-items: flex-start;
+            flex: 1;
+
+            @include tablet(){
+                width: 100%;
+                flex: 1;
+            }
+        }
+
+        .right--flex{
+            .site--stats{
+                display: grid;
+                width: 100%;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                margin: auto;
+                
+                h2{
+                    font-weight: 700;
+                    font-size: 3rem;
+                }
+            
+                @include mobile(){
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                @include tablet(){
+                    gap: 0.5rem;
+
+                    h2{
+                        font-size: 1.8rem;
+                    }
+                    h3{
+                        font-size: 1.1rem;
+                    }
+                }
+            
+                
+            }
+        }
+
+    }
+
+}
+
+
+
+section.section2{
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section--content{
+        width: 80%;
+        @include flex(row-reverse);
+
+        @include mobile(){
+            width: 90%;
+            flex-direction: column-reverse;
+        }
+
+        @include tablet(){
+            width: 90%;
+        }
+
+        img{
+            flex: 1;
+
+            @include tablet(){
+                width: 50%;
+            }
+        }
+
+        div:first-child{
+            flex: 1;
+
+            h2,button{
+                margin-block: 1rem;
+            }
+            h3{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                text-align: left;
+                margin: 0;
+                gap: 1rem;
+                line-height: 2.5;
+            }
+
+            @include tablet(){
+                width: 100%;
+                flex: 1;
+
+            }
+        }
+
+        @include mobile(){
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+// services component
+section.services{
+    
+    & > div{
+        width: 80%;
+        @include flex(row);
+        margin: auto;
+
+        @include mobile(){
+            width: 90%;
+            flex-direction: column;
+            
+            *{
+                text-align: center;
+            }
+        }
+
+        @include tablet(){
+            width: 90%;
+            flex-direction: column;
+
+            *{
+                text-align: center;
+            }
+        }
+        
+        .service--cards--section{
+            @include flex(row);
+            flex: 1;
+            margin: auto;
+
+            @include mobile(){
+                flex-direction: column;
+            }
+
+            @include tablet(){
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+.service--card{
+    @include flex(column);
+    gap: 0.1rem;
+    width: 250px;
+    height: 180px;
+    background-color: $default;
+    text-align: center;
+
+    *{
+        text-align: center;
+    }
+
+    @include mobile(){
+        height: 120px;
+    }
+}
+
+// review component
+section.reviews{
+    margin-block: 5rem;
+
+    & > div{
+        width: 80%;
+        @include flex(column);
+
+        @include mobile(){
+            width: 90%;
+        }
+
+        @include tablet(){
+            width: 90%;
+        }
+        
+        .review--cards--section{
+            width: 100%;
+            @include flex(row);
+            justify-content: space-around;
+            
+            @include mobile(){
+                flex-direction: column;
+            }
+
+            @include tablet(){
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+.review--card{
+    @include flex(row);
+    width: 450px;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    @include mobile(){
+        width: 80%;
+        flex-direction: column;
+        height: auto;
+
+        *{
+            text-align: center;
+        }
+    }
+}
+// footer component
+footer{
+    background-color: $primary;
+    padding-top: 3rem;
+    margin-top: 15rem;
+
+    *{
+        color: $default;
+    }
+
+    & > div{
+        width: 80%;
+        @include flex(column);
+        gap: 3rem;
+
+        @include mobile(){
+            width: 90%;
+            flex-direction: column;
+        }
+
+        @include tablet(){
+            width: 90%;
+        }
+
+        hr{
+            margin: auto;
+            width: 50%;
+            border: 1px solid $default;
+        }
+
+        div{
+            width: 100%;
+        }
+
+        .subscribe{
+            @include flex(row);
+            text-align: center;
+
+            @include mobile(){
+                flex-direction: column;
+            }
+
+            @include tablet(){
+                flex-direction: column;
+            }
+
+            input{
+                width: 500px;
+                margin-inline: 1rem;
+                padding: 2rem;
+                color: $text--dark;
+                border-radius: 0.625rem;
+                right: 250px;
+
+                @include mobile(){
+                    position: initial;
+                    padding: 1rem;
+                    width: 100%;
+                    margin: auto;
+                    margin-block: 1rem;
+                }
+
+                @include tablet(){
+                    position: initial;
+                    padding: 1.5rem;
+                }
+            }
+
+            button{
+                position: relative;
+                left: -160px;
+                top: 1px;
+                z-index: 2;
+                border: solid $default;
+
+                @include mobile(){
+                    position: initial;
+                    background-color: $default;
+                    color: $text--dark;
+                }
+
+                @include tablet(){
+                    position: initial;
+                    background-color: $default;
+                    color: $text--dark;
+                }
+            }
+        }
+        
+        .footer--contents{
+            @include flex(row);
+            align-items: flex-start;
+            justify-content: space-evenly;
+            gap: 2rem;
+
+            @include mobile(){
+                flex-direction: column;
+            }
+
+            .links{
+                display: flex;
+                gap: 1rem;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            & > div{
+                *{
+                    margin-block: 1rem;
+                }
+            }
+
+            ul{
+                text-align: left;
+            }
+
+            li:first-child{
+                font-size: 1.2rem;
+                font-family: $heading--text;
+                font-weight: bold;
+            }
+
+            .footer--icon{
+                font-size: 1.25rem;
+                margin-right: 0.5rem;
+            }
+        }
+
+        .footer--note{
+            color: $default;
+
+        *{
+            text-align: center;
+        }
+
+        hr{
+            margin-block: 1rem;
+        }
+        }
+    }
+}
