@@ -439,7 +439,8 @@ section.steps{
     }
 
     @include mobile(){
-        margin-bottom: auto;
+        margin-bottom: 0;
+        margin-block: 0;
         width: 100%;
     }
 
@@ -460,6 +461,10 @@ section.section1{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mobile(){
+        margin-bottom: 3rem;
+    }
 
     .section--content{
         width: 80%;
@@ -553,11 +558,7 @@ section.section1{
 
 
 section.section2{
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-block: 3rem;
 
     .section--content{
         width: 80%;
@@ -565,7 +566,7 @@ section.section2{
 
         @include mobile(){
             width: 90%;
-            flex-direction: column-reverse;
+            flex-direction: column;
         }
 
         @include tablet(){
@@ -574,6 +575,10 @@ section.section2{
 
         img{
             flex: 1;
+
+            @include mobile(){
+                // width: 100%;
+            }
 
             @include tablet(){
                 width: 50%;
@@ -603,9 +608,7 @@ section.section2{
             }
         }
 
-        @include mobile(){
-            flex-direction: column-reverse;
-        }
+        
     }
 }
 
