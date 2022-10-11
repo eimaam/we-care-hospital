@@ -16,7 +16,7 @@ export const Header = () => {
 
 
   return (
-    <header data-aos="fade-right" data-aos-delay="150">
+    <header data-aos="fade-down" data-aos-delay="250">
         <Nav />
         <div className='hero--section'>
             <div className='site--info'>

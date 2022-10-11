@@ -263,11 +263,6 @@ nav div:last-child {
   gap: 1rem;
 }
 
-@media only screen and (max-width: 820px) {
-  header {
-    height: 100vh;
-  }
-}
 @media only screen and (min-width: 821px) and (max-width: 1320px) {
   header {
     height: 80vh;
@@ -291,7 +286,9 @@ header .hero--section .site--info {
 }
 @media only screen and (max-width: 820px) {
   header .hero--section .site--info {
+    padding-block: 3rem;
     gap: 1rem;
+    flex: 1;
   }
 }
 @media only screen and (min-width: 821px) and (max-width: 1320px) {
@@ -313,8 +310,14 @@ header .hero--section img {
   }
 }
 @media only screen and (max-width: 820px) {
+  header .hero--section img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 820px) {
   header .hero--section {
-    flex-direction: column-reverse;
+    flex-direction: column;
     width: 90%;
   }
 }
@@ -488,9 +491,20 @@ section.section1 .section--content .right--flex .site--stats h2 {
   font-size: 3rem;
 }
 @media only screen and (max-width: 820px) {
+  section.section1 .section--content .right--flex .site--stats h2 {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 820px) {
   section.section1 .section--content .right--flex .site--stats {
     flex-direction: column;
     gap: 1rem;
+  }
+  section.section1 .section--content .right--flex .site--stats h2 {
+    font-size: 1.2rem;
+  }
+  section.section1 .section--content .right--flex .site--stats h3 {
+    font-size: 1rem;
   }
 }
 @media only screen and (min-width: 821px) and (max-width: 1320px) {
