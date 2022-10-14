@@ -12,7 +12,7 @@
 }
 
 @mixin tablet{
-    @media only screen and (min-width: 821px) and (max-width: 1320px){
+    @media only screen and (min-width: 821px) and (max-width: 1340px){
         @content;
     }
 }
@@ -269,23 +269,20 @@ nav{
     @include flex(row);
     justify-content: space-between;
     padding: 0.5rem 8rem;
+    z-index: 100;
 
-    @include mobile(){
+    #showMenu, #hideMenu{
         display: none;
+        font-size: 1.5rem;
+        color: $default;
     }
 
     a{
         &.active{
             color: $primary;
-        }
-
-        &:hover{
-            outline: 1px solid $primary;
-            padding: 0.5rem;
-        }
+            transition: all 300ms;
+        }        
     }
-
-    
     
 
     div, ul{
@@ -295,6 +292,10 @@ nav{
     h2{
         color: $primary;
         flex: 1;
+
+        @include mobile(){
+            color: $default;
+        }
     }
 
     ul{
@@ -305,6 +306,22 @@ nav{
             font-family: $heading--text;
             font-weight: 400;
             font-size: 1.125;
+            transition: all 300ms;
+
+            &:hover{
+                outline: 1px solid $primary;
+                padding: 0.3rem;
+            }
+
+            @include mobile(){
+                color: $default;
+            }
+        }
+
+        @include mobile(){
+            flex-direction: column;
+            display: none;
+            height: 100vh;
         }
     }
 
@@ -312,6 +329,28 @@ nav{
         display: flex;
         justify-content: end;
         gap: 1rem;
+
+        @include mobile(){
+            display: none;
+        }
+    }
+    // end of desktop nav styling
+
+    // mobile nav bar styling starts here
+    @include mobile{
+        display: block;
+        background-color: $primary;
+        position: fixed;
+        top: 0;
+        padding: 0.3rem 1rem;
+
+        h2{
+            display: none;
+        }
+
+        #showMenu{
+            display: inline;            
+        }   
     }
 }
 header{
@@ -379,11 +418,12 @@ section.steps{
         padding: 2rem;
         color: $default;
         width: 80%;
-        margin-bottom: 10rem;
+        margin-bottom: 4rem;
         text-align: center;
 
         @include mobile(){
             width: 90%;
+            margin-bottom: 0;
         }
 
         @include tablet(){
@@ -433,6 +473,10 @@ section.steps{
     background-color: $default;
     margin-bottom: -10rem;
     transition: all 2000ms;
+
+    h1,p{
+        text-align: center;
+    }
 
     h1{
         font-size: 3.125rem;
@@ -660,6 +704,11 @@ section.services{
     height: 180px;
     background-color: $default;
     text-align: center;
+    transition: all 300ms;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 
     *{
         text-align: center;
@@ -859,6 +908,7 @@ footer{
             .footer--icon{
                 font-size: 1.25rem;
                 margin-right: 0.5rem;
+                cursor: pointer;
             }
         }
 

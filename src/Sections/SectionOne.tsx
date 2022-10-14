@@ -17,7 +17,7 @@ export const SectionOne = () => {
   return (
     <section className='section1'>
       <div className='section--content'>
-        <div className='section--info' data-aos="fade">
+        <div className='section--info' data-aos="fade" data-aos-delay="250" data-aos-easing="ease-out">
             <h2>About us</h2>
             <h3>At WeCare, Your Health is our first priority</h3>
             <p>We care is one of the largest health care centers <br/> We provide essential outpatient and offer the best <br /> services for over millions of residents every day in various <br /> locations every year.</p>

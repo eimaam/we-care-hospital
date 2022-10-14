@@ -19,7 +19,7 @@ export const StepCard = (props: Props) => {
   }, [])
 
   return (
-    <div className='steps--card' data-aos="fade-up" data-aos-delay="150">
+    <div className='steps--card' data-aos="fade-up" data-aos-delay="700" data-aos-easing="ease-out">
       <h1>{props.icon}</h1>
       <h3>{props.title}</h3>
       <p>{props.detail}</p>

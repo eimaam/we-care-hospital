@@ -17,7 +17,7 @@ export const SectionTwo = () => {
   return (
     <section className='section2'>
       <div className='section--content' >
-        <div data-aos="fade-up">
+        <div data-aos="fade-up" data-aos-easing="ease-out">
           <h2>We always ensure the best medical treatment for your health. </h2>
           <h3><span><img src={firstAidBubble} alt="speech bubble" /></span> Modern Clinic</h3>
           <h3><span><img src={firstAidBubble} alt="speech bubble" /></span> Professional Treatment</h3>

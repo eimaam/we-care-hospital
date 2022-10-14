@@ -11,7 +11,7 @@ export const Footer = () => {
         </div>
         <div>
           <input type="email" title='email' placeholder='Email Address'/>
-          <button >Subscribe</button>
+          <button onClick={(e) => {alert("Subscribed Successfully! ✅")}}>Subscribe</button>
         </div>
       </div>
       <div className='footer--contents'>

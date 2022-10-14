@@ -16,10 +16,10 @@ interface Props {
 export const ReviewCard = (props: Props) => {
 
   useEffect(() => {
-    AOS.init({delay: 200})
+    AOS.init({delay: 300})
   }, [])
   return (
-    <div className='review--card' data-aos="zoom-in">
+    <div className='review--card' data-aos="zoom-out-right" data-aos-easing="ease-out">
         <img src={props.avatar} alt="" />
       <div>
         <h4>{props.name}</h4>
